@@ -22,6 +22,7 @@ import zed.rainxch.core.domain.repository.ExternalImportRepository
 import zed.rainxch.core.domain.repository.InstalledAppsRepository
 import zed.rainxch.core.domain.repository.TweaksRepository
 import zed.rainxch.core.domain.system.PackageMonitor
+import zed.rainxch.core.domain.system.SystemInstallSerializer
 import zed.rainxch.githubstore.app.di.initKoin
 
 class GithubStoreApp : Application() {
@@ -112,6 +113,7 @@ class GithubStoreApp : Application() {
                 externalImportRepository = get<ExternalImportRepository>(),
                 externalLinkDao = get<ExternalLinkDao>(),
                 appScope = get<CoroutineScope>(),
+                systemInstallSerializer = get<SystemInstallSerializer>(),
             )
         val filter = PackageEventReceiver.createIntentFilter()
 
@@ -230,6 +232,7 @@ class GithubStoreApp : Application() {
      * and still has the flag set — the typical scenario after a
      * successful self-update where the broadcast path missed.
      */
+
     /**
      * Self-heal stale `installedVersion` tags on the self-row carried
      * over from before #515 was fixed. Only fires when:
@@ -290,7 +293,9 @@ class GithubStoreApp : Application() {
                         isUpdateAvailable = latestVersionCode > systemInfo.versionCode,
                     ),
                 )
-                Logger.i { "Resolved self-update pending install: ${systemInfo.versionName} (code=${systemInfo.versionCode}, tag=$resolvedTag)" }
+                Logger.i {
+                    "Resolved self-update pending install: ${systemInfo.versionName} (code=${systemInfo.versionCode}, tag=$resolvedTag)"
+                }
             } else {
                 repo.updatePendingStatus(packageName, false)
                 Logger.i { "Resolved self-update pending install (no system info)" }

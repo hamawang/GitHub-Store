@@ -16,6 +16,7 @@ import zed.rainxch.core.domain.repository.ExternalImportRepository
 import zed.rainxch.core.domain.repository.InstalledAppsRepository
 import zed.rainxch.core.domain.system.ExternalLinkState
 import zed.rainxch.core.domain.system.PackageMonitor
+import zed.rainxch.core.domain.system.SystemInstallSerializer
 import zed.rainxch.core.domain.util.VersionVerdict
 import zed.rainxch.core.domain.util.resolveExternalInstallVerdict
 
@@ -36,6 +37,7 @@ class PackageEventReceiver() :
     private val appScopeKoin: CoroutineScope by inject()
     private val externalImportRepositoryKoin: ExternalImportRepository by inject()
     private val externalLinkDaoKoin: ExternalLinkDao by inject()
+    private val systemInstallSerializerKoin: SystemInstallSerializer by inject()
 
     // Explicitly provided dependencies (dynamic registration path)
     private var explicitRepository: InstalledAppsRepository? = null
@@ -43,6 +45,7 @@ class PackageEventReceiver() :
     private var explicitExternalImport: ExternalImportRepository? = null
     private var explicitExternalLinkDao: ExternalLinkDao? = null
     private var explicitAppScope: CoroutineScope? = null
+    private var explicitSystemInstallSerializer: SystemInstallSerializer? = null
 
     // Local fallback scope for the manifest-registered path when
     // `onReceive` fires but Koin somehow couldn't resolve the shared
@@ -57,12 +60,14 @@ class PackageEventReceiver() :
         externalImportRepository: ExternalImportRepository,
         externalLinkDao: ExternalLinkDao,
         appScope: CoroutineScope,
+        systemInstallSerializer: SystemInstallSerializer,
     ) : this() {
         this.explicitRepository = installedAppsRepository
         this.explicitMonitor = packageMonitor
         this.explicitExternalImport = externalImportRepository
         this.explicitExternalLinkDao = externalLinkDao
         this.explicitAppScope = appScope
+        this.explicitSystemInstallSerializer = systemInstallSerializer
     }
 
     private fun getRepository(): InstalledAppsRepository = explicitRepository ?: installedAppsRepositoryKoin
@@ -74,6 +79,9 @@ class PackageEventReceiver() :
 
     private fun getExternalLinkDao(): ExternalLinkDao =
         explicitExternalLinkDao ?: externalLinkDaoKoin
+
+    private fun getSystemInstallSerializer(): SystemInstallSerializer =
+        explicitSystemInstallSerializer ?: systemInstallSerializerKoin
 
     private fun getBackstopScope(): CoroutineScope =
         // Koin's app-scoped CoroutineScope outlives a manifest-registered
@@ -142,6 +150,11 @@ class PackageEventReceiver() :
     }
 
     private suspend fun onPackageInstalled(packageName: String) {
+        // Release the system-install serializer gate so the next queued
+        // install (if any) can fire its ACTION_VIEW intent. Done at the
+        // very top so the gate clears even if downstream DB writes fail.
+        getSystemInstallSerializer().markCompleted(packageName)
+
         try {
             val repo = getRepository()
             val monitor = getMonitor()
@@ -156,9 +169,20 @@ class PackageEventReceiver() :
                     val systemInfo = monitor.getInstalledPackageInfo(packageName)
                     if (systemInfo != null) {
                         val expectedVersionCode = app.latestVersionCode ?: 0L
-                        val wasActuallyUpdated =
+                        val versionCodeMatchesTarget =
                             expectedVersionCode > 0L &&
                                 systemInfo.versionCode >= expectedVersionCode
+                        // When latestVersionCode is 0 (apkInfo extraction
+                        // failed pre-download) the versionCode comparison
+                        // can't decide. Fall back to versionName so the
+                        // tag still gets written and the apps row stops
+                        // rendering the stale "installed: vOld" subtext.
+                        val versionNameChanged =
+                            !systemInfo.versionName.isNullOrBlank() &&
+                                systemInfo.versionName != app.installedVersionName
+                        val wasActuallyUpdated =
+                            versionCodeMatchesTarget ||
+                                (expectedVersionCode <= 0L && versionNameChanged)
 
                         if (wasActuallyUpdated) {
                             repo.updateAppVersion(
@@ -173,9 +197,16 @@ class PackageEventReceiver() :
                             repo.updatePendingStatus(packageName, false)
                             Logger.i { "Update confirmed via broadcast: $packageName (v${systemInfo.versionName})" }
                         } else {
+                            // Even on the "didn't reach target" branch the
+                            // installedVersion tag must move forward when the
+                            // user accepted some install — leaving it pinned
+                            // to the old tag makes the apps row report the
+                            // pre-install version forever.
                             repo.updateApp(
                                 app.copy(
                                     isPendingInstall = false,
+                                    installedVersion =
+                                        app.latestVersion ?: systemInfo.versionName,
                                     installedVersionName = systemInfo.versionName,
                                     installedVersionCode = systemInfo.versionCode,
                                     isUpdateAvailable =
@@ -344,6 +375,10 @@ class PackageEventReceiver() :
     }
 
     private suspend fun onPackageRemoved(packageName: String) {
+        // Mirror onPackageInstalled — release the install gate so a queued
+        // re-install for the same package isn't held up.
+        getSystemInstallSerializer().markCompleted(packageName)
+
         try {
             getRepository().deleteInstalledApp(packageName)
             runCatching { getExternalImport().unlink(packageName) }
