@@ -17,6 +17,16 @@
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <!--
+        Whitelisted use: aggressive-OEM ROMs (Oppo / OnePlus / Realme /
+        Xiaomi / vivo / Honor) routinely kill background WorkManager
+        tasks even when the user has scheduled a periodic update check
+        through GitHub Store's own settings. Surfaced via a one-time
+        prompt — never required, never re-nagged after dismissal.
+    -->
+    <uses-permission
+        android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS"
+        tools:ignore="BatteryLife" />
 
     <uses-permission android:name="com.rosan.dhizuku.permission.API" />
 

@@ -62,6 +62,10 @@ actual val corePlatformModule = module {
         )
     }
 
+    single<zed.rainxch.core.domain.system.AggressiveOemDetector> {
+        zed.rainxch.core.data.services.DesktopAggressiveOemDetector()
+    }
+
     single<PackageMonitor> {
         DesktopPackageMonitor()
     }

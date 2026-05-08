@@ -110,6 +110,10 @@ actual val corePlatformModule =
             AndroidFileLocationsProvider(context = get())
         }
 
+        single<zed.rainxch.core.domain.system.AggressiveOemDetector> {
+            zed.rainxch.core.data.services.AndroidAggressiveOemDetector(context = androidContext())
+        }
+
         single<PendingInstallNotifier> {
             AndroidPendingInstallNotifier(context = androidContext())
         }
