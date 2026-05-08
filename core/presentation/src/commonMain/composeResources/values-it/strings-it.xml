@@ -571,6 +571,11 @@
     <string name="interval_12h">12h</string>
     <string name="interval_24h">24h</string>
 
+    <string name="battery_optimization_card_title">Consenti aggiornamenti in background</string>
+    <string name="battery_optimization_card_description">Il tuo dispositivo chiude in modo aggressivo le attività in background. Esenta GitHub Store dall\'ottimizzazione della batteria affinché i controlli pianificati e le installazioni silenziose funzionino in modo affidabile.</string>
+    <string name="battery_optimization_card_open">Apri impostazioni</string>
+    <string name="battery_optimization_card_dismiss">Più tardi</string>
+
     <string name="add_by_link">Aggiungi tramite link</string>
     <string name="link_app_title">Collega app al repository</string>
     <string name="pick_installed_app">Scegli un'app installata da collegare a un repository GitHub</string>

@@ -571,6 +571,11 @@
     <string name="interval_12h">১২ঘ</string>
     <string name="interval_24h">২৪ঘ</string>
 
+    <string name="battery_optimization_card_title">ব্যাকগ্রাউন্ড আপডেট অনুমতি দিন</string>
+    <string name="battery_optimization_card_description">আপনার ডিভাইস ব্যাকগ্রাউন্ড টাস্কগুলো আক্রমণাত্মকভাবে বন্ধ করে। GitHub Store-কে ব্যাটারি অপটিমাইজেশন থেকে হোয়াইটলিস্ট করুন যাতে নির্ধারিত আপডেট চেক এবং সাইলেন্ট ইনস্টল নির্ভরযোগ্যভাবে চলে।</string>
+    <string name="battery_optimization_card_open">সেটিংস খুলুন</string>
+    <string name="battery_optimization_card_dismiss">পরে</string>
+
     <string name="add_by_link">লিঙ্ক দিয়ে যোগ করুন</string>
     <string name="link_app_title">অ্যাপ রিপোজিটরিতে লিঙ্ক করুন</string>
     <string name="pick_installed_app">GitHub রিপোজিটরিতে লিঙ্ক করতে একটি ইনস্টল করা অ্যাপ বেছে নিন</string>

@@ -569,6 +569,11 @@
     <string name="interval_12h">12s</string>
     <string name="interval_24h">24s</string>
 
+    <string name="battery_optimization_card_title">Arka planda güncellemelere izin ver</string>
+    <string name="battery_optimization_card_description">Cihazın arka plan görevlerini agresif şekilde kapatıyor. GitHub Store\'u pil optimizasyonundan hariç tut ki zamanlanmış güncelleme kontrolleri ve sessiz kurulumlar güvenilir biçimde çalışsın.</string>
+    <string name="battery_optimization_card_open">Ayarları aç</string>
+    <string name="battery_optimization_card_dismiss">Sonra</string>
+
     <string name="add_by_link">Bağlantıyla ekle</string>
     <string name="link_app_title">Uygulamayı depoya bağla</string>
     <string name="pick_installed_app">GitHub deposuna bağlamak için yüklü bir uygulama seçin</string>

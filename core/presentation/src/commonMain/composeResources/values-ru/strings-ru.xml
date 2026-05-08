@@ -535,6 +535,11 @@
     <string name="interval_12h">12ч</string>
     <string name="interval_24h">24ч</string>
 
+    <string name="battery_optimization_card_title">Разрешить обновления в фоне</string>
+    <string name="battery_optimization_card_description">Ваше устройство агрессивно завершает фоновые задачи. Исключите GitHub Store из оптимизации батареи, чтобы запланированные проверки обновлений и тихая установка работали надёжно.</string>
+    <string name="battery_optimization_card_open">Открыть настройки</string>
+    <string name="battery_optimization_card_dismiss">Позже</string>
+
     <string name="add_by_link">Добавить по ссылке</string>
     <string name="link_app_title">Привязать приложение к репозиторию</string>
     <string name="pick_installed_app">Выберите установленное приложение для привязки к репозиторию GitHub</string>

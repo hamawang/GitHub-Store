@@ -665,6 +665,11 @@
     <string name="interval_12h">12h</string>
     <string name="interval_24h">24h</string>
 
+    <string name="battery_optimization_card_title">Allow background updates</string>
+    <string name="battery_optimization_card_description">Your device aggressively kills background tasks. Whitelist GitHub Store from battery optimization so scheduled update checks and silent installs can run reliably.</string>
+    <string name="battery_optimization_card_open">Open settings</string>
+    <string name="battery_optimization_card_dismiss">Maybe later</string>
+
     <string name="add_by_link">Add by link</string>
     <string name="link_app_title">Link app to repository</string>
     <string name="pick_installed_app">Pick an installed app to link with a GitHub repository</string>

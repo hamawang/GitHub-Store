@@ -535,6 +535,11 @@
     <string name="interval_12h">12小时</string>
     <string name="interval_24h">24小时</string>
 
+    <string name="battery_optimization_card_title">允许后台更新</string>
+    <string name="battery_optimization_card_description">你的设备会积极结束后台任务。把 GitHub Store 加入电池优化白名单，定时更新检查和静默安装才能稳定运行。</string>
+    <string name="battery_optimization_card_open">打开设置</string>
+    <string name="battery_optimization_card_dismiss">稍后</string>
+
     <string name="add_by_link">通过链接添加</string>
     <string name="link_app_title">将应用链接到仓库</string>
     <string name="pick_installed_app">选择一个已安装的应用以链接到GitHub仓库</string>

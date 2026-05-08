@@ -569,6 +569,11 @@
     <string name="interval_12h">12시간</string>
     <string name="interval_24h">24시간</string>
 
+    <string name="battery_optimization_card_title">백그라운드 업데이트 허용</string>
+    <string name="battery_optimization_card_description">이 기기는 백그라운드 작업을 적극적으로 종료해요. 배터리 최적화에서 GitHub Store를 화이트리스트에 추가하면 예약된 업데이트 확인과 사일런트 설치가 안정적으로 동작해요.</string>
+    <string name="battery_optimization_card_open">설정 열기</string>
+    <string name="battery_optimization_card_dismiss">나중에</string>
+
     <string name="add_by_link">링크로 추가</string>
     <string name="link_app_title">앱을 저장소에 연결</string>
     <string name="pick_installed_app">GitHub 저장소에 연결할 설치된 앱을 선택하세요</string>
