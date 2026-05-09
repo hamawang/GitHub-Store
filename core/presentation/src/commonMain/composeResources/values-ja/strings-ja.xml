@@ -1060,4 +1060,21 @@
     <string name="whats_new_translations_note">変更履歴は英語です。Issuesでの翻訳投稿を歓迎します。</string>
     <string name="whats_new_version_label">バージョン %1$s · %2$s</string>
 
+    <!-- Skip this version (issue #542) -->
+    <string name="apps_skip_version">このバージョンをスキップ</string>
+    <string name="apps_skip_version_unskip">スキップしない</string>
+    <string name="apps_skip_version_snackbar">%1$s をスキップしました。新しいバージョンが出たら通知します。</string>
+    <string name="apps_unskip_version_snackbar">アップデート通知を再び有効にしました</string>
+    <string name="apps_skip_version_error">設定を更新できませんでした</string>
+    <string name="apps_unskip_version_error">更新通知を復元できませんでした</string>
+    <string name="skipped_updates_entry_title">スキップ中のアップデート</string>
+    <string name="skipped_updates_entry_description">無視を選んだバージョン</string>
+    <string name="skipped_updates_title">スキップ中のアップデート</string>
+    <string name="skipped_updates_empty_title">スキップ中のバージョンはありません</string>
+    <string name="skipped_updates_empty_description">アプリ画面でアップデートをスキップすると、ここに表示され、解除できます。</string>
+    <string name="skipped_updates_skipped_label">%1$s をスキップ</string>
+    <string name="skipped_updates_installed_label">インストール済み: %1$s</string>
+    <string name="skipped_updates_unskip_action">スキップしない</string>
+    <string name="skipped_updates_unskipped_snackbar">%1$s のアップデート通知を再び有効にしました</string>
+    <string name="skipped_updates_unskip_failure">設定を更新できませんでした</string>
 </resources>

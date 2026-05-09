@@ -1093,4 +1093,21 @@
     <string name="whats_new_translations_note">চেঞ্জলগ ইংরেজিতে। Issues-এর মাধ্যমে অনুবাদ স্বাগত।</string>
     <string name="whats_new_version_label">সংস্করণ %1$s · %2$s</string>
 
+    <!-- Skip this version (issue #542) -->
+    <string name="apps_skip_version">এই সংস্করণ এড়িয়ে যান</string>
+    <string name="apps_skip_version_unskip">এড়িয়ে যাবেন না</string>
+    <string name="apps_skip_version_snackbar">%1$s এড়ানো হয়েছে — নতুন সংস্করণ এলে জানানো হবে</string>
+    <string name="apps_unskip_version_snackbar">আপডেট প্রম্পট আবার চালু</string>
+    <string name="apps_skip_version_error">পছন্দ আপডেট করা যায়নি</string>
+    <string name="apps_unskip_version_error">আপডেট বিজ্ঞপ্তি পুনরুদ্ধার করা যায়নি</string>
+    <string name="skipped_updates_entry_title">এড়ানো আপডেট</string>
+    <string name="skipped_updates_entry_description">যেসব সংস্করণ আপনি উপেক্ষা করেছেন</string>
+    <string name="skipped_updates_title">এড়ানো আপডেট</string>
+    <string name="skipped_updates_empty_title">কোনো এড়ানো সংস্করণ নেই</string>
+    <string name="skipped_updates_empty_description">অ্যাপ স্ক্রিনে আপডেট এড়ালে এখানে দেখা যাবে এবং পুনরায় ফেরত নেওয়া যাবে।</string>
+    <string name="skipped_updates_skipped_label">%1$s এড়ানো হয়েছে</string>
+    <string name="skipped_updates_installed_label">ইনস্টল করা: %1$s</string>
+    <string name="skipped_updates_unskip_action">এড়িয়ে যাবেন না</string>
+    <string name="skipped_updates_unskipped_snackbar">%1$s এর জন্য আপডেট প্রম্পট আবার চালু</string>
+    <string name="skipped_updates_unskip_failure">পছন্দ আপডেট করা যায়নি</string>
 </resources>

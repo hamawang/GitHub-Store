@@ -1065,4 +1065,21 @@
     <string name="whats_new_translations_note">El changelog está en inglés. Las traducciones son bienvenidas vía Issues.</string>
     <string name="whats_new_version_label">Versión %1$s · %2$s</string>
 
+    <!-- Skip this version (issue #542) -->
+    <string name="apps_skip_version">Saltar esta versión</string>
+    <string name="apps_skip_version_unskip">No saltar</string>
+    <string name="apps_skip_version_snackbar">%1$s saltada — recibirás un aviso cuando salga una versión más nueva</string>
+    <string name="apps_unskip_version_snackbar">Aviso de actualización reactivado</string>
+    <string name="apps_skip_version_error">No se pudo actualizar la preferencia</string>
+    <string name="apps_unskip_version_error">No se pudo restaurar la notificación de actualización</string>
+    <string name="skipped_updates_entry_title">Actualizaciones saltadas</string>
+    <string name="skipped_updates_entry_description">Versiones que has decidido ignorar</string>
+    <string name="skipped_updates_title">Actualizaciones saltadas</string>
+    <string name="skipped_updates_empty_title">Ninguna versión saltada</string>
+    <string name="skipped_updates_empty_description">Cuando saltes una actualización en la pantalla de apps, aparecerá aquí para que puedas revertirla.</string>
+    <string name="skipped_updates_skipped_label">Saltada %1$s</string>
+    <string name="skipped_updates_installed_label">Instalada: %1$s</string>
+    <string name="skipped_updates_unskip_action">No saltar</string>
+    <string name="skipped_updates_unskipped_snackbar">Aviso de actualización reactivado para %1$s</string>
+    <string name="skipped_updates_unskip_failure">No se pudo actualizar la preferencia</string>
 </resources>

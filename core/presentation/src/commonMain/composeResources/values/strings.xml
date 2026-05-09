@@ -1127,4 +1127,22 @@
     <string name="announcements_severity_critical">Critical</string>
     <string name="announcements_critical_modal_close">Close after acknowledgment</string>
     <string name="announcements_open_mute_settings">Open mute settings</string>
+
+    <!-- Skip this version (issue #542) -->
+    <string name="apps_skip_version">Skip this version</string>
+    <string name="apps_skip_version_unskip">Don\'t skip</string>
+    <string name="apps_skip_version_snackbar">Skipped %1$s — you\'ll be notified when a newer version arrives</string>
+    <string name="apps_unskip_version_snackbar">Update prompt enabled again</string>
+    <string name="apps_skip_version_error">Couldn\'t update skip preference</string>
+    <string name="apps_unskip_version_error">Couldn\'t restore the update notification</string>
+    <string name="skipped_updates_entry_title">Skipped updates</string>
+    <string name="skipped_updates_entry_description">Versions you\'ve chosen to ignore</string>
+    <string name="skipped_updates_title">Skipped updates</string>
+    <string name="skipped_updates_empty_title">No skipped versions</string>
+    <string name="skipped_updates_empty_description">When you skip an update on the apps screen, the entry will show up here so you can revert it.</string>
+    <string name="skipped_updates_skipped_label">Skipped %1$s</string>
+    <string name="skipped_updates_installed_label">Installed: %1$s</string>
+    <string name="skipped_updates_unskip_action">Don\'t skip</string>
+    <string name="skipped_updates_unskipped_snackbar">Update prompt enabled for %1$s</string>
+    <string name="skipped_updates_unskip_failure">Couldn\'t update skip preference</string>
 </resources>

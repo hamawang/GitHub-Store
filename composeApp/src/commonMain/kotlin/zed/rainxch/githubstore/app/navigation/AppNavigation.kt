@@ -48,6 +48,7 @@ import zed.rainxch.starred.presentation.StarredReposRoot
 import zed.rainxch.tweaks.presentation.TweaksRoot
 import zed.rainxch.tweaks.presentation.mirror.AutoSuggestMirrorViewModel
 import zed.rainxch.tweaks.presentation.mirror.MirrorPickerRoot
+import zed.rainxch.tweaks.presentation.skipped.SkippedUpdatesRoot
 import zed.rainxch.tweaks.presentation.mirror.components.AutoSuggestMirrorSheet
 
 // Cross-screen "return result" key: set by the external-import wizard's
@@ -376,6 +377,17 @@ fun AppNavigation(
                                 launchSingleTop = true
                             }
                         },
+                        onNavigateToSkippedUpdates = {
+                            navController.navigate(GithubStoreGraph.SkippedUpdatesScreen) {
+                                launchSingleTop = true
+                            }
+                        },
+                    )
+                }
+
+                composable<GithubStoreGraph.SkippedUpdatesScreen> {
+                    SkippedUpdatesRoot(
+                        onNavigateBack = { navController.popBackStack() },
                     )
                 }
 

@@ -1062,4 +1062,21 @@
     <string name="whats_new_translations_note">更新日志为英文。欢迎通过 Issues 提交翻译。</string>
     <string name="whats_new_version_label">版本 %1$s · %2$s</string>
 
+    <!-- Skip this version (issue #542) -->
+    <string name="apps_skip_version">跳过此版本</string>
+    <string name="apps_skip_version_unskip">不要跳过</string>
+    <string name="apps_skip_version_snackbar">已跳过 %1$s — 当有更新版本时会通知你</string>
+    <string name="apps_unskip_version_snackbar">已重新启用更新提示</string>
+    <string name="apps_skip_version_error">无法更新偏好设置</string>
+    <string name="apps_unskip_version_error">无法恢复更新提示</string>
+    <string name="skipped_updates_entry_title">已跳过的更新</string>
+    <string name="skipped_updates_entry_description">你选择忽略的版本</string>
+    <string name="skipped_updates_title">已跳过的更新</string>
+    <string name="skipped_updates_empty_title">没有跳过的版本</string>
+    <string name="skipped_updates_empty_description">在应用页面跳过更新后，条目会显示在这里，可随时撤销。</string>
+    <string name="skipped_updates_skipped_label">已跳过 %1$s</string>
+    <string name="skipped_updates_installed_label">已安装：%1$s</string>
+    <string name="skipped_updates_unskip_action">不要跳过</string>
+    <string name="skipped_updates_unskipped_snackbar">已为 %1$s 重新启用更新提示</string>
+    <string name="skipped_updates_unskip_failure">无法更新偏好设置</string>
 </resources>

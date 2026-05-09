@@ -1102,4 +1102,21 @@
     <string name="whats_new_translations_note">Changelog İngilizcedir. Çeviriler Issues üzerinden memnuniyetle karşılanır.</string>
     <string name="whats_new_version_label">Sürüm %1$s · %2$s</string>
 
+    <!-- Skip this version (issue #542) -->
+    <string name="apps_skip_version">Bu sürümü atla</string>
+    <string name="apps_skip_version_unskip">Atlamayı kaldır</string>
+    <string name="apps_skip_version_snackbar">%1$s atlandı — daha yeni bir sürüm geldiğinde haber verilecek</string>
+    <string name="apps_unskip_version_snackbar">Güncelleme bildirimi yeniden açık</string>
+    <string name="apps_skip_version_error">Tercih güncellenemedi</string>
+    <string name="apps_unskip_version_error">Güncelleme bildirimi geri yüklenemedi</string>
+    <string name="skipped_updates_entry_title">Atlanan güncellemeler</string>
+    <string name="skipped_updates_entry_description">Yoksaymayı seçtiğin sürümler</string>
+    <string name="skipped_updates_title">Atlanan güncellemeler</string>
+    <string name="skipped_updates_empty_title">Atlanan sürüm yok</string>
+    <string name="skipped_updates_empty_description">Uygulamalar ekranında bir güncellemeyi atladığında kayıt geri almak için burada görünür.</string>
+    <string name="skipped_updates_skipped_label">Atlandı: %1$s</string>
+    <string name="skipped_updates_installed_label">Yüklü: %1$s</string>
+    <string name="skipped_updates_unskip_action">Atlamayı kaldır</string>
+    <string name="skipped_updates_unskipped_snackbar">%1$s için güncelleme bildirimi yeniden açıldı</string>
+    <string name="skipped_updates_unskip_failure">Tercih güncellenemedi</string>
 </resources>

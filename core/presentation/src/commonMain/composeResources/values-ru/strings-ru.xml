@@ -1086,4 +1086,21 @@
     <string name="whats_new_translations_note">Журнал изменений на английском. Переводы приветствуются через Issues.</string>
     <string name="whats_new_version_label">Версия %1$s · %2$s</string>
 
+    <!-- Skip this version (issue #542) -->
+    <string name="apps_skip_version">Пропустить эту версию</string>
+    <string name="apps_skip_version_unskip">Не пропускать</string>
+    <string name="apps_skip_version_snackbar">Версия %1$s пропущена — вы получите уведомление, когда выйдет более новая</string>
+    <string name="apps_unskip_version_snackbar">Уведомление об обновлении снова включено</string>
+    <string name="apps_skip_version_error">Не удалось обновить настройку</string>
+    <string name="apps_unskip_version_error">Не удалось восстановить уведомление об обновлении</string>
+    <string name="skipped_updates_entry_title">Пропущенные обновления</string>
+    <string name="skipped_updates_entry_description">Версии, которые вы решили игнорировать</string>
+    <string name="skipped_updates_title">Пропущенные обновления</string>
+    <string name="skipped_updates_empty_title">Нет пропущенных версий</string>
+    <string name="skipped_updates_empty_description">Когда вы пропускаете обновление на экране приложений, запись появляется здесь, чтобы её можно было отменить.</string>
+    <string name="skipped_updates_skipped_label">Пропущена %1$s</string>
+    <string name="skipped_updates_installed_label">Установлена: %1$s</string>
+    <string name="skipped_updates_unskip_action">Не пропускать</string>
+    <string name="skipped_updates_unskipped_snackbar">Уведомление снова включено для %1$s</string>
+    <string name="skipped_updates_unskip_failure">Не удалось обновить настройку</string>
 </resources>

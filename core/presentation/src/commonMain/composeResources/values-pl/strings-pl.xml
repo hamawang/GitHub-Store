@@ -1086,4 +1086,21 @@
     <string name="whats_new_translations_note">Changelog jest w języku angielskim. Tłumaczenia mile widziane przez Issues.</string>
     <string name="whats_new_version_label">Wersja %1$s · %2$s</string>
 
+    <!-- Skip this version (issue #542) -->
+    <string name="apps_skip_version">Pomiń tę wersję</string>
+    <string name="apps_skip_version_unskip">Nie pomijaj</string>
+    <string name="apps_skip_version_snackbar">Pominięto %1$s — otrzymasz powiadomienie, gdy pojawi się nowsza wersja</string>
+    <string name="apps_unskip_version_snackbar">Powiadomienie o aktualizacji ponownie włączone</string>
+    <string name="apps_skip_version_error">Nie udało się zmienić preferencji</string>
+    <string name="apps_unskip_version_error">Nie udało się przywrócić powiadomienia o aktualizacji</string>
+    <string name="skipped_updates_entry_title">Pominięte aktualizacje</string>
+    <string name="skipped_updates_entry_description">Wersje, które zdecydowałeś się ignorować</string>
+    <string name="skipped_updates_title">Pominięte aktualizacje</string>
+    <string name="skipped_updates_empty_title">Brak pominiętych wersji</string>
+    <string name="skipped_updates_empty_description">Gdy pominiesz aktualizację z ekranu aplikacji, pozycja pojawi się tutaj, abyś mógł ją cofnąć.</string>
+    <string name="skipped_updates_skipped_label">Pominięto %1$s</string>
+    <string name="skipped_updates_installed_label">Zainstalowana: %1$s</string>
+    <string name="skipped_updates_unskip_action">Nie pomijaj</string>
+    <string name="skipped_updates_unskipped_snackbar">Powiadomienie włączone dla %1$s</string>
+    <string name="skipped_updates_unskip_failure">Nie udało się zmienić preferencji</string>
 </resources>

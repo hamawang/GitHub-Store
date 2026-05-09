@@ -1105,4 +1105,21 @@
     <string name="whats_new_translations_note">Il changelog è in inglese. Le traduzioni sono benvenute tramite Issues.</string>
     <string name="whats_new_version_label">Versione %1$s · %2$s</string>
 
+    <!-- Skip this version (issue #542) -->
+    <string name="apps_skip_version">Ignora questa versione</string>
+    <string name="apps_skip_version_unskip">Non ignorare</string>
+    <string name="apps_skip_version_snackbar">%1$s ignorata — riceverai un avviso quando uscirà una versione più recente</string>
+    <string name="apps_unskip_version_snackbar">Avviso di aggiornamento riattivato</string>
+    <string name="apps_skip_version_error">Impossibile aggiornare la preferenza</string>
+    <string name="apps_unskip_version_error">Impossibile ripristinare la notifica di aggiornamento</string>
+    <string name="skipped_updates_entry_title">Aggiornamenti ignorati</string>
+    <string name="skipped_updates_entry_description">Versioni che hai scelto di ignorare</string>
+    <string name="skipped_updates_title">Aggiornamenti ignorati</string>
+    <string name="skipped_updates_empty_title">Nessuna versione ignorata</string>
+    <string name="skipped_updates_empty_description">Quando ignori un aggiornamento dalla schermata app, la voce apparirà qui per poterla annullare.</string>
+    <string name="skipped_updates_skipped_label">%1$s ignorata</string>
+    <string name="skipped_updates_installed_label">Installata: %1$s</string>
+    <string name="skipped_updates_unskip_action">Non ignorare</string>
+    <string name="skipped_updates_unskipped_snackbar">Avviso riattivato per %1$s</string>
+    <string name="skipped_updates_unskip_failure">Impossibile aggiornare la preferenza</string>
 </resources>

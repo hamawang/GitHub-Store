@@ -127,6 +127,8 @@ sealed interface TweaksAction {
 
     data object OnMirrorPickerClick : TweaksAction
 
+    data object OnSkippedUpdatesClick : TweaksAction
+
     data class OnTelemetryToggled(
         val enabled: Boolean,
     ) : TweaksAction

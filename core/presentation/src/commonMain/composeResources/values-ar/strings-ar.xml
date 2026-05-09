@@ -1117,4 +1117,21 @@
     <string name="whats_new_translations_note">سجل التغييرات بالإنجليزية. الترجمات مرحَّب بها عبر Issues.</string>
     <string name="whats_new_version_label">الإصدار %1$s · %2$s</string>
 
+    <!-- Skip this version (issue #542) -->
+    <string name="apps_skip_version">تخطّي هذا الإصدار</string>
+    <string name="apps_skip_version_unskip">إلغاء التخطّي</string>
+    <string name="apps_skip_version_snackbar">تم تخطّي %1$s — سيتم إعلامك عند صدور إصدار أحدث</string>
+    <string name="apps_unskip_version_snackbar">تم تفعيل إشعار التحديث مجددًا</string>
+    <string name="apps_skip_version_error">تعذّر تحديث التفضيل</string>
+    <string name="apps_unskip_version_error">تعذّر استعادة إشعار التحديث</string>
+    <string name="skipped_updates_entry_title">التحديثات المتخطّاة</string>
+    <string name="skipped_updates_entry_description">الإصدارات التي اخترت تجاهلها</string>
+    <string name="skipped_updates_title">التحديثات المتخطّاة</string>
+    <string name="skipped_updates_empty_title">لا توجد إصدارات متخطّاة</string>
+    <string name="skipped_updates_empty_description">عند تخطّي تحديث من شاشة التطبيقات، يظهر هنا حتى تتمكن من التراجع.</string>
+    <string name="skipped_updates_skipped_label">تم تخطّي %1$s</string>
+    <string name="skipped_updates_installed_label">المثبَّت: %1$s</string>
+    <string name="skipped_updates_unskip_action">إلغاء التخطّي</string>
+    <string name="skipped_updates_unskipped_snackbar">تم تفعيل الإشعار لـ %1$s</string>
+    <string name="skipped_updates_unskip_failure">تعذّر تحديث التفضيل</string>
 </resources>

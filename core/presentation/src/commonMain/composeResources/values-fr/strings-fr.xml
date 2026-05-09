@@ -1066,4 +1066,21 @@
     <string name="whats_new_translations_note">Le changelog est en anglais. Traductions bienvenues via les Issues.</string>
     <string name="whats_new_version_label">Version %1$s · %2$s</string>
 
+    <!-- Skip this version (issue #542) -->
+    <string name="apps_skip_version">Ignorer cette version</string>
+    <string name="apps_skip_version_unskip">Ne plus ignorer</string>
+    <string name="apps_skip_version_snackbar">%1$s ignorée — vous recevrez un avis dès qu\'une nouvelle version paraîtra</string>
+    <string name="apps_unskip_version_snackbar">Avis de mise à jour réactivé</string>
+    <string name="apps_skip_version_error">Impossible de mettre à jour la préférence</string>
+    <string name="apps_unskip_version_error">Impossible de restaurer la notification de mise à jour</string>
+    <string name="skipped_updates_entry_title">Mises à jour ignorées</string>
+    <string name="skipped_updates_entry_description">Versions que vous avez choisi d\'ignorer</string>
+    <string name="skipped_updates_title">Mises à jour ignorées</string>
+    <string name="skipped_updates_empty_title">Aucune version ignorée</string>
+    <string name="skipped_updates_empty_description">Quand vous ignorez une mise à jour depuis l\'écran des applis, l\'entrée apparaîtra ici pour pouvoir l\'annuler.</string>
+    <string name="skipped_updates_skipped_label">%1$s ignorée</string>
+    <string name="skipped_updates_installed_label">Installée : %1$s</string>
+    <string name="skipped_updates_unskip_action">Ne plus ignorer</string>
+    <string name="skipped_updates_unskipped_snackbar">Avis réactivé pour %1$s</string>
+    <string name="skipped_updates_unskip_failure">Impossible de mettre à jour la préférence</string>
 </resources>
