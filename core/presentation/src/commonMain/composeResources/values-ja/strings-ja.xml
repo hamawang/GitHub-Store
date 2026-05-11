@@ -985,7 +985,7 @@
     <string name="dhizuku_install_hint">サイレントインストールを有効化するには、DhizukuをインストールしてDevice Ownerとして有効化してください</string>
     <string name="dhizuku_start_hint">サイレントインストールを有効化するには、DhizukuをDevice Ownerとして有効化してください</string>
     <string name="installer_type_root">Root</string>
-    <string name="installer_type_root_description">Magisk / KernelSU / APatch root による静音インストール</string>
+    <string name="installer_type_root_description">Magisk / KernelSU / APatch root によるサイレントインストール</string>
     <string name="root_status_ready">許可済み</string>
     <string name="root_status_permission_needed">Root を許可</string>
     <string name="root_status_unavailable">Root なし</string>
