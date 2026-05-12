@@ -36,6 +36,7 @@ import zed.rainxch.core.domain.utils.ShareManager
 import zed.rainxch.core.presentation.model.DiscoveryRepositoryUi
 import zed.rainxch.core.presentation.utils.toUi
 import zed.rainxch.domain.repository.SearchRepository
+import zed.rainxch.profile.domain.repository.ProfileRepository
 import zed.rainxch.githubstore.core.presentation.res.Res
 import zed.rainxch.githubstore.core.presentation.res.failed_to_share_link
 import zed.rainxch.githubstore.core.presentation.res.link_copied_to_clipboard
@@ -63,6 +64,7 @@ class SearchViewModel(
     private val seenReposRepository: SeenReposRepository,
     private val searchHistoryRepository: SearchHistoryRepository,
     private val telemetryRepository: TelemetryRepository,
+    private val profileRepository: ProfileRepository,
 ) : ViewModel() {
     private var hasLoadedInitialData = false
     private var currentSearchJob: Job? = null
@@ -349,6 +351,7 @@ class SearchViewModel(
                             currentPage = paginatedRepos.nextPageIndex
 
                             val seenIds = _state.value.seenRepoIds
+                            val currentLogin = profileRepository.getUser().first()?.username
 
                             val newReposWithStatus =
                                 paginatedRepos.repos.map { repo ->
@@ -361,6 +364,9 @@ class SearchViewModel(
                                         isFavourite = favourite != null,
                                         isStarred = starred != null,
                                         isSeen = repo.id in seenIds,
+                                        isCurrentUserOwner =
+                                            currentLogin != null &&
+                                                repo.owner.login.equals(currentLogin, ignoreCase = true),
                                         isUpdateAvailable = apps.any { it.hasActualUpdate() },
                                         repository = repo.toUi(),
                                     )
@@ -772,6 +778,7 @@ class SearchViewModel(
         val favoritesMap = favouritesRepository.getAllFavorites().first().associateBy { it.repoId }
         val starredMap = starredRepository.getAllStarred().first().associateBy { it.repoId }
         val seenIds = _state.value.seenRepoIds
+        val currentLogin = profileRepository.getUser().first()?.username
 
         val existingIds = _state.value.repositories.map { it.repository.id }.toSet()
 
@@ -784,6 +791,9 @@ class SearchViewModel(
                     isFavourite = favoritesMap[repo.id] != null,
                     isStarred = starredMap[repo.id] != null,
                     isSeen = repo.id in seenIds,
+                    isCurrentUserOwner =
+                        currentLogin != null &&
+                            repo.owner.login.equals(currentLogin, ignoreCase = true),
                     isUpdateAvailable = apps.any { it.hasActualUpdate() },
                     repository = repo.toUi(),
                 )

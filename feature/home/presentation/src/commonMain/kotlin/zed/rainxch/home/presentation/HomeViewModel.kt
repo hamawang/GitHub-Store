@@ -39,6 +39,7 @@ import zed.rainxch.home.domain.model.HomeCategory
 import zed.rainxch.home.domain.model.TopicCategory
 import zed.rainxch.home.domain.repository.HomeRepository
 import zed.rainxch.home.presentation.HomeEvent.*
+import zed.rainxch.profile.domain.repository.ProfileRepository
 
 class HomeViewModel(
     private val homeRepository: HomeRepository,
@@ -51,6 +52,7 @@ class HomeViewModel(
     private val shareManager: ShareManager,
     private val tweaksRepository: TweaksRepository,
     private val seenReposRepository: SeenReposRepository,
+    private val profileRepository: ProfileRepository,
 ) : ViewModel() {
     private var hasLoadedInitialData = false
     private var currentJob: Job? = null
@@ -366,6 +368,7 @@ class HomeViewModel(
                 .associateBy { it.repoId }
 
         val seenIds = _state.value.seenRepoIds
+        val currentLogin = profileRepository.getUser().first()?.username
 
         return repos.map { repo ->
             val apps = installedAppsMap[repo.id].orEmpty()
@@ -377,6 +380,9 @@ class HomeViewModel(
                 isFavourite = favourite != null,
                 isStarred = starred != null,
                 isSeen = repo.id in seenIds,
+                isCurrentUserOwner =
+                    currentLogin != null &&
+                        repo.owner.login.equals(currentLogin, ignoreCase = true),
                 isUpdateAvailable = apps.any { it.hasActualUpdate() },
                 repository = repo.toUi(),
             )
