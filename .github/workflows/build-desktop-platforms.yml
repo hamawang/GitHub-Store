@@ -95,6 +95,7 @@ jobs:
     permissions:
       id-token: write
       contents: read
+      actions: write
 
     steps:
       # Fail loudly if any SignPath config is missing instead of letting the
@@ -146,6 +147,21 @@ jobs:
           if-no-files-found: error
           retention-days: 30
           compression-level: 0
+
+      # Remove the unsigned upload so only the SignPath-signed installers are
+      # downloadable from the run page and end up in the draft release.
+      # Without this, both windows-installers (unsigned) and
+      # windows-installers-signed coexist as 30-day artifacts.
+      - name: Delete unsigned Windows artifact
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ARTIFACT_ID: ${{ needs.build-windows.outputs.windows-artifact-id }}
+          REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          gh api -X DELETE "repos/${REPO}/actions/artifacts/${ARTIFACT_ID}"
+          echo "Deleted unsigned artifact id=${ARTIFACT_ID}"
+        shell: bash
 
   build-macos:
     strategy:
