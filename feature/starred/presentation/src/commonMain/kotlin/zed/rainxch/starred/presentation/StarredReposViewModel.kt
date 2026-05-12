@@ -150,6 +150,10 @@ class StarredReposViewModel(
                 _state.update { it.copy(errorMessage = null) }
             }
 
+            is StarredReposAction.OnSearchChange -> {
+                _state.update { it.copy(searchQuery = action.query) }
+            }
+
             is StarredReposAction.OnToggleFavorite -> {
                 viewModelScope.launch {
                     val repo = action.repository
