@@ -229,6 +229,30 @@ fun SearchScreen(
         }
     }
 
+    // Auto-paginate while every loaded repo is filtered out by the global
+    // "Hide seen" tweak. The grid is empty → scroll-based shouldLoadMore can
+    // never fire (totalItemsCount == 0), so without this the user is stranded
+    // on a blank screen with no way to reach page 2+ where unseen repos may
+    // live. Stops once hasMorePages flips false; the banner then takes over.
+    LaunchedEffect(
+        state.repositories.size,
+        state.visibleRepos.size,
+        state.isHideSeenEnabled,
+        state.hasMorePages,
+        state.isLoadingMore,
+        state.isLoading,
+    ) {
+        if (state.repositories.isNotEmpty() &&
+            state.visibleRepos.isEmpty() &&
+            state.isHideSeenEnabled &&
+            state.hasMorePages &&
+            !state.isLoadingMore &&
+            !state.isLoading
+        ) {
+            currentOnAction(SearchAction.LoadMore)
+        }
+    }
+
     LaunchedEffect(listState.layoutInfo.totalItemsCount, listState.layoutInfo.viewportEndOffset) {
         val layoutInfo = listState.layoutInfo
         val visibleItems = layoutInfo.visibleItemsInfo
@@ -561,13 +585,20 @@ fun SearchScreen(
                     }
                 }
 
-                // All API hits filtered out by the global "Hide seen" tweak
-                // — results counter still shows the raw total, so without this
-                // banner the user sees "N results found" above an empty grid
-                // and assumes the app is broken (issue #574).
+                // All currently loaded API hits filtered out by the global
+                // "Hide seen" tweak AND no further pages remain — results
+                // counter still shows the raw total, so without this banner
+                // the user sees "N results found" above an empty grid and
+                // assumes the app is broken (issue #574). `hasMorePages` is
+                // required because the scroll-based pagination above stalls
+                // when totalItemsCount == 0, so we surface the banner only
+                // when there is genuinely nothing more to fetch. While
+                // hasMorePages is true, the auto-paginate effect below pulls
+                // the next page in the background.
                 if (state.repositories.isNotEmpty() &&
                     state.visibleRepos.isEmpty() &&
-                    state.isHideSeenEnabled
+                    state.isHideSeenEnabled &&
+                    !state.hasMorePages
                 ) {
                     Box(
                         modifier = Modifier.fillMaxSize(),
