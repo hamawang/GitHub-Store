@@ -9,6 +9,12 @@
       "bullets": [
         "Homebrew で macOS にインストール — 新しい tap から `brew install --cask github-store`。"
       ]
+    },
+    {
+      "type": "FIXED",
+      "bullets": [
+        "リポ詳細のプラットフォームチップが、そのプラットフォームで絞り込まれた Search を開くように — 以前は無反応。"
+      ]
     }
   ]
 }

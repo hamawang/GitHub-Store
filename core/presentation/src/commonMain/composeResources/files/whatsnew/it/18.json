@@ -9,6 +9,12 @@
       "bullets": [
         "Installazione macOS con Homebrew — `brew install --cask github-store` dal nostro nuovo tap."
       ]
+    },
+    {
+      "type": "FIXED",
+      "bullets": [
+        "I chip di piattaforma nei dettagli del repo ora aprono Search filtrato per quella piattaforma — prima erano inerti."
+      ]
     }
   ]
 }

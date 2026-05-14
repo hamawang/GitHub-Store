@@ -9,6 +9,12 @@
       "bullets": [
         "macOS पर Homebrew से इंस्टॉल — हमारे नए tap से `brew install --cask github-store`।"
       ]
+    },
+    {
+      "type": "FIXED",
+      "bullets": [
+        "रिपो विवरण में प्लेटफ़ॉर्म चिप अब उस प्लेटफ़ॉर्म से फ़िल्टर्ड Search खोलती है — पहले निष्क्रिय थी।"
+      ]
     }
   ]
 }

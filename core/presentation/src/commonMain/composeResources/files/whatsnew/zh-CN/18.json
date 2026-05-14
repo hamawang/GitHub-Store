@@ -9,6 +9,12 @@
       "bullets": [
         "通过 Homebrew 在 macOS 上安装 — 从我们的新 tap 运行 `brew install --cask github-store`。"
       ]
+    },
+    {
+      "type": "FIXED",
+      "bullets": [
+        "仓库详情中的平台标签现在会打开按该平台过滤的 Search — 之前无反应。"
+      ]
     }
   ]
 }
