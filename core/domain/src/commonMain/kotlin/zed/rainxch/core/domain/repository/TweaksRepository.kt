@@ -105,6 +105,15 @@ interface TweaksRepository {
     suspend fun setExternalImportBannerDismissedAtCount(count: Int)
 
     /**
+     * Permanent dismissal flag for the Keep Android Open campaign banner on
+     * Apps. False until user taps the close button; flips to true forever
+     * once dismissed.
+     */
+    fun getKaoBannerDismissed(): Flow<Boolean>
+
+    suspend fun setKaoBannerDismissed(dismissed: Boolean)
+
+    /**
      * One-shot flag for the APK Inspect coachmark next to the install
      * button on the details screen. `false` until the user has seen the
      * coachmark at least once; flips permanently to `true` thereafter.

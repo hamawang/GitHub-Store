@@ -330,6 +330,17 @@ class TweaksRepositoryImpl(
         }
     }
 
+    override fun getKaoBannerDismissed(): Flow<Boolean> =
+        preferences.data.map { prefs ->
+            prefs[KAO_BANNER_DISMISSED_KEY] ?: false
+        }
+
+    override suspend fun setKaoBannerDismissed(dismissed: Boolean) {
+        preferences.edit { prefs ->
+            prefs[KAO_BANNER_DISMISSED_KEY] = dismissed
+        }
+    }
+
     override fun getApkInspectCoachmarkShown(): Flow<Boolean> =
         preferences.data.map { prefs ->
             prefs[APK_INSPECT_COACHMARK_SHOWN_KEY] ?: false
@@ -466,6 +477,7 @@ class TweaksRepositoryImpl(
         private val EXTERNAL_IMPORT_ENABLED_KEY = booleanPreferencesKey("external_import_enabled")
         private val EXTERNAL_MATCH_SEARCH_ENABLED_KEY = booleanPreferencesKey("external_match_search_enabled")
         private val EXTERNAL_IMPORT_BANNER_DISMISSED_AT_KEY = intPreferencesKey("external_import_banner_dismissed_at")
+        private val KAO_BANNER_DISMISSED_KEY = booleanPreferencesKey("kao_banner_dismissed")
         private val APK_INSPECT_COACHMARK_SHOWN_KEY = booleanPreferencesKey("apk_inspect_coachmark_shown")
         private val CHANNEL_CHIP_COACHMARK_SHOWN_KEY = booleanPreferencesKey("channel_chip_coachmark_shown")
         private val SHOW_ALL_PLATFORMS_KEY = booleanPreferencesKey("show_all_platforms")
