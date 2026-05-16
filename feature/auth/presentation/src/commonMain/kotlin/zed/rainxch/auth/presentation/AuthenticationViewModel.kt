@@ -3,6 +3,7 @@ package zed.rainxch.auth.presentation
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import java.net.URLEncoder
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -541,7 +542,7 @@ class AuthenticationViewModel(
                     try {
                         clipboardHelper.copy(
                             label = getString(Res.string.enter_code_on_github),
-                            text = start.userCode,
+                            text = start.userCode.filter { it.isLetterOrDigit() },
                         )
                         _state.update { it.copy(copied = true) }
                     } catch (e: Exception) {
@@ -554,6 +555,13 @@ class AuthenticationViewModel(
                 countdownJob?.cancel()
                 pollingJob?.cancel()
                 clearSavedState()
+                val rootCause = generateSequence<Throwable>(t) { it.cause }.lastOrNull() ?: t
+                val rootClass = rootCause::class.simpleName ?: "Throwable"
+                val rootMsg = rootCause.message ?: "<no message>"
+                logger.error(
+                    "startDeviceFlow failed. topClass=${t::class.simpleName} topMsg=${t.message} | rootClass=$rootClass rootMsg=$rootMsg",
+                    t,
+                )
                 val (message, hint) = categorizeError(t)
                 withContext(Dispatchers.Main.immediate) {
                     _state.update {
@@ -803,7 +811,8 @@ class AuthenticationViewModel(
     private fun openGitHub(start: GithubDeviceStartUi) {
         viewModelScope.launch(Dispatchers.Main.immediate) {
             try {
-                val url = start.verificationUriComplete ?: start.verificationUri
+                val url = start.verificationUriComplete
+                    ?: buildPrefilledUrl(start.verificationUri, start.userCode)
                 browserHelper.openUrl(url)
             } catch (e: Exception) {
                 logger.debug("Failed to open browser: ${e.message}")
@@ -811,12 +820,17 @@ class AuthenticationViewModel(
         }
     }
 
+    private fun buildPrefilledUrl(verificationUri: String, userCode: String): String {
+        val separator = if ('?' in verificationUri) "&" else "?"
+        return verificationUri + separator + "user_code=" + URLEncoder.encode(userCode, "UTF-8")
+    }
+
     private fun copyCode(start: GithubDeviceStartUi) {
         viewModelScope.launch(Dispatchers.Main.immediate) {
             try {
                 clipboardHelper.copy(
                     label = "GitHub Code",
-                    text = start.userCode,
+                    text = start.userCode.filter { it.isLetterOrDigit() },
                 )
 
                 _state.update {
