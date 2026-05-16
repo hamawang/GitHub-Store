@@ -48,7 +48,7 @@ class AuthenticationRepositoryImpl(
 
             try {
                 val dto = GitHubAuthApi.startDeviceFlowViaBackend(BACKEND_ORIGIN)
-                logger.info("Device flow started via Backend. userCode=${dto.userCode} interval=${dto.intervalSec}s expires=${dto.expiresInSec}s completeUri=${dto.verificationUriComplete != null}")
+                logger.info("Device flow started via Backend. interval=${dto.intervalSec}s expires=${dto.expiresInSec}s completeUri=${dto.verificationUriComplete != null}")
                 DeviceFlowStart(dto.toDomain(), AuthPath.Backend)
             } catch (e: CancellationException) {
                 throw e
@@ -63,7 +63,7 @@ class AuthenticationRepositoryImpl(
                     )
                     try {
                         val dto = GitHubAuthApi.startDeviceFlowDirect(clientId)
-                        logger.info("Device flow started via Direct fallback. userCode=${dto.userCode}")
+                        logger.info("Device flow started via Direct fallback.")
                         DeviceFlowStart(dto.toDomain(), AuthPath.Direct)
                     } catch (inner: CancellationException) {
                         throw inner

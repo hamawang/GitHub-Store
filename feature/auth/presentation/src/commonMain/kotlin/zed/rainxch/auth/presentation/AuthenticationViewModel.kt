@@ -3,6 +3,7 @@ package zed.rainxch.auth.presentation
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import java.net.URLEncoder
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -632,7 +633,7 @@ class AuthenticationViewModel(
 
     private fun buildPrefilledUrl(verificationUri: String, userCode: String): String {
         val separator = if ('?' in verificationUri) "&" else "?"
-        return verificationUri + separator + "user_code=" + userCode
+        return verificationUri + separator + "user_code=" + URLEncoder.encode(userCode, "UTF-8")
     }
 
     private fun copyCode(start: GithubDeviceStartUi) {
